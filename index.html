@@ -15,8 +15,8 @@
 /* Layout: one dark column, 1120px wide, sections separated by space and a mono label. */
 :root{
   color-scheme:dark;
-  --bg:#07080B; --panel:#0F1116; --panel2:#151821; --line:rgba(242,240,235,.12);
-  --ink:#F2F0EB; --dim:#A3A7B3; --hot:#FF5A1F; --hot2:#FF8A3D; --ok:#36D399;
+  --bg:#04050A; --panel:rgba(18,21,40,.55); --panel2:rgba(255,255,255,.06); --line:rgba(190,200,255,.16);
+  --ink:#F3F4FF; --dim:#B4B9D2; --hot:#8C9BFF; --hot2:#38E1FF; --pink:#FF7AD1; --ok:#36D399;
   --display:"Unbounded","Arial Black",sans-serif; --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",Consolas,monospace;
 }
 *{box-sizing:border-box}
@@ -28,8 +28,9 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--hot);outline-offset:3px;border-radius:4px}
 
 /* nav */
-header{position:fixed;inset:0 0 auto 0;z-index:20;backdrop-filter:blur(14px);background:rgba(7,8,11,.72);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+header{position:fixed;inset:14px 0 auto 0;z-index:20;pointer-events:none}
+header .wrap{pointer-events:auto;max-width:760px;border:1px solid var(--line);border-radius:999px;background:rgba(10,12,28,.55);backdrop-filter:blur(18px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:54px;gap:16px}
 .brand{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none;letter-spacing:.02em}
 .brand b{color:var(--hot)}
 nav{display:flex;gap:6px;flex-wrap:wrap}
@@ -37,13 +38,16 @@ nav a{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform
 nav a:hover{color:var(--ink);background:var(--panel2)}
 
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-block:120px 80px;overflow:hidden}
-#net{position:absolute;inset:0;width:100%;height:100%;opacity:.7}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(900px 600px at 78% 30%,rgba(255,90,31,.16),transparent 65%),linear-gradient(180deg,transparent 60%,var(--bg));pointer-events:none}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;text-align:center;padding-block:120px 160px}
+.hero .lede{margin-inline:auto}.hero .cta{justify-content:center}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main,footer{position:relative;z-index:1}
+
 .hero .wrap{position:relative;z-index:1;width:100%}
-.hello{font-family:var(--mono);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);margin:0 0 18px}
+.hello{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--hot);margin:0 0 22px;padding:8px 14px;border:1px solid rgba(140,155,255,.45);border-radius:999px;background:rgba(140,155,255,.10);backdrop-filter:blur(8px)}
+.hello::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--hot2);box-shadow:0 0 12px var(--hot2)}
 h1{font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,124px);line-height:.95;letter-spacing:-.02em;margin:0;text-transform:uppercase}
-h1 span{color:transparent;-webkit-text-stroke:1.5px rgba(242,240,235,.6)}
+h1 span{background:linear-gradient(100deg,var(--hot),var(--hot2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 34px rgba(124,140,255,.55))}
 .typed{font-family:var(--display);font-weight:500;font-size:clamp(18px,2.6vw,30px);margin:26px 0 0;min-height:1.5em}
 .typed b{color:var(--hot);font-weight:500}
 .caret{display:inline-block;width:.55em;height:1.05em;background:var(--hot);vertical-align:-.15em;margin-left:4px;animation:blink 1s steps(1) infinite}
@@ -52,35 +56,38 @@ h1 span{color:transparent;-webkit-text-stroke:1.5px rgba(242,240,235,.6)}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:8px;border:1px solid var(--line);background:var(--panel)}
 .btn:hover{border-color:var(--ink)}
-.btn.pri{background:var(--hot);border-color:var(--hot);color:#140600;font-weight:500}
-.btn.pri:hover{background:var(--hot2);border-color:var(--hot2)}
+.btn{backdrop-filter:blur(10px)}
+.btn.pri{background:linear-gradient(100deg,var(--hot),var(--hot2));border-color:transparent;color:#05061A;font-weight:500;box-shadow:0 10px 40px rgba(124,140,255,.4)}
+.btn.pri:hover{filter:brightness(1.12)}
 
 /* sections */
-section{padding-block:96px}
+section{padding-block:96px;scroll-margin-top:60px}
 .label{font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--hot);margin:0 0 14px}
-h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,56px);line-height:1.02;letter-spacing:-.01em;margin:0 0 28px;text-transform:uppercase;text-wrap:balance}
+h2{text-shadow:0 0 40px rgba(124,140,255,.35);font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,56px);line-height:1.02;letter-spacing:-.01em;margin:0 0 28px;text-transform:uppercase;text-wrap:balance}
 h3{font-family:var(--display);font-weight:500;font-size:18px;margin:0 0 10px;letter-spacing:.01em}
 p{margin:0 0 16px}
 .dim{color:var(--dim)}
 .two{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
 .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.fact{background:var(--panel);padding:22px}
-.fact b{display:block;font-family:var(--display);font-weight:700;font-size:34px;line-height:1;color:var(--hot);font-variant-numeric:tabular-nums}
+.fact{background:rgba(10,12,28,.75);padding:22px}
+.fact b{display:block;font-family:var(--display);font-weight:700;font-size:34px;line-height:1.1;background:linear-gradient(100deg,var(--hot),var(--hot2));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
 .fact span{display:block;margin-top:8px;font-size:14px;color:var(--dim);line-height:1.4}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.group{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.group,.card,.contact{backdrop-filter:blur(14px);transition:border-color .3s,transform .3s,box-shadow .3s}
+.group:hover,.card:hover{border-color:rgba(140,155,255,.6);transform:translateY(-4px);box-shadow:0 20px 60px rgba(60,80,255,.18)}
+.group{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .chips li{font-family:var(--mono);font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--ink);background:var(--panel2)}
 
 /* project */
-.screen{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 80px rgba(255,90,31,.08)}
+.screen{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#000;box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 90px rgba(90,110,255,.28)}
 .screen video,.screen img{width:100%}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
-.tags li{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--hot2);border:1px solid rgba(255,90,31,.4);padding:4px 9px;border-radius:999px}
+.tags li{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--hot2);border:1px solid rgba(56,225,255,.4);padding:4px 9px;border-radius:999px}
 .built{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:40px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .card p{font-size:15.5px;color:var(--dim);margin:0;line-height:1.55}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:40px}
 .gallery figure{margin:0}
@@ -103,6 +110,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
 </style>
 </head>
 <body>
+<canvas id="net" aria-hidden="true"></canvas>
 <header>
   <div class="wrap">
     <a class="brand" href="#top">ETHAN<b>.</b>KISTAN</a>
@@ -114,9 +122,8 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
 
 <main id="top">
   <div class="hero">
-    <canvas id="net" aria-hidden="true"></canvas>
     <div class="wrap">
-      <p class="hello">Hello, I'm</p>
+      <p class="hello">Software developer · C# and .NET</p>
       <h1>Ethan <span>Kistan</span></h1>
       <p class="typed">I build <b id="typed">backend APIs</b><span class="caret" aria-hidden="true"></span></p>
       <p class="lede">Software developer working in C# and .NET. I like the parts of a system people don't see: the API, the database, and the integrations that keep the screen honest.</p>
@@ -236,26 +243,49 @@ if (!calm) {
   }, 55);
 }
 
-// Hero background: a drifting network of points, like routes between depots.
-const cv = document.getElementById("net"), cx = cv.getContext("2d");
-let W, H, pts = [];
+// Space background: nebula, twinkling stars, warp streaks from the centre, and a ringed planet
+// that rises under the hero and sinks away as you scroll.
+const cv = document.getElementById("net"), x = cv.getContext("2d"), R = Math.random;
+let W, H, stars = [], warp = [], t = 0;
 function size() {
   const d = Math.min(devicePixelRatio || 1, 2);
-  W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; cx.setTransform(d, 0, 0, d, 0, 0);
-  const count = Math.round(Math.min(90, (W * H) / 16000));
-  pts = Array.from({ length: count }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25, hot: Math.random() < .12 }));
+  W = innerWidth; H = innerHeight; cv.width = W * d; cv.height = H * d; x.setTransform(d, 0, 0, d, 0, 0);
+  stars = Array.from({ length: Math.round(Math.min(380, (W * H) / 4200)) }, () => ({ x: R() * W, y: R() * H, z: R() * .9 + .1, r: R() * 1.4 + .3, tw: R() * 6.28 }));
+  warp = Array.from({ length: 110 }, () => ({ wx: (R() - .5) * 2, wy: (R() - .5) * 2, wz: R(), pink: R() < .3 }));
 }
+function glow(px, py, r, c) { const g = x.createRadialGradient(px * W, py * H, 0, px * W, py * H, r * Math.max(W, H)); g.addColorStop(0, c); g.addColorStop(1, "transparent"); x.fillStyle = g; x.fillRect(0, 0, W, H); }
 function draw() {
-  cx.clearRect(0, 0, W, H);
-  for (const p of pts) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
-  for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
-    const a = pts[i], b = pts[j], dist = Math.hypot(a.x - b.x, a.y - b.y);
-    if (dist < 150) { cx.strokeStyle = (a.hot || b.hot) ? `rgba(255,90,31,${.5 * (1 - dist / 150)})` : `rgba(242,240,235,${.14 * (1 - dist / 150)})`; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke(); }
+  t += .016;
+  const sc = Math.min(1, scrollY / H), sway = Math.sin(t * .2) * .03;
+  x.fillStyle = "#04050A"; x.fillRect(0, 0, W, H);
+  glow(.25 + sway, .3, .6, "rgba(90,70,255,.30)"); glow(.8, .65, .55, "rgba(20,160,220,.20)"); glow(.5, .45, .3, "rgba(200,70,220,.14)");
+  for (const s of stars) { s.x -= s.z * .1; if (s.x < 0) s.x += W; const al = .45 + .55 * Math.sin(t * 2 + s.tw); x.fillStyle = `rgba(220,230,255,${al * (.35 + s.z * .65)})`; x.beginPath(); x.arc(s.x, s.y, s.r * s.z, 0, 7); x.fill(); }
+  // warp streaks, calmer once you scroll past the hero
+  const cx = W / 2, cy = H * .46, k = Math.max(W, H) * .55, power = 1 - sc * .75;
+  x.lineCap = "round";
+  for (const s of warp) {
+    s.wz -= .009 * (calm ? 0 : 1); if (s.wz <= .03) { s.wz = 1; s.wx = (R() - .5) * 2; s.wy = (R() - .5) * 2; }
+    const tail = Math.min(1, s.wz + .13), x1 = cx + (s.wx / s.wz) * k, y1 = cy + (s.wy / s.wz) * k, x0 = cx + (s.wx / tail) * k, y0 = cy + (s.wy / tail) * k;
+    if (x1 < -200 || x1 > W + 200 || y1 < -200 || y1 > H + 200) continue;
+    const g = x.createLinearGradient(x0, y0, x1, y1); g.addColorStop(0, "rgba(140,155,255,0)"); g.addColorStop(1, s.pink ? `rgba(255,122,209,${.8 * power})` : `rgba(210,225,255,${.8 * power})`);
+    x.strokeStyle = g; x.lineWidth = (1 - s.wz) * 2.6 + .3; x.beginPath(); x.moveTo(x0, y0); x.lineTo(x1, y1); x.stroke();
   }
-  for (const p of pts) { cx.fillStyle = p.hot ? "#FF5A1F" : "rgba(242,240,235,.55)"; cx.beginPath(); cx.arc(p.x, p.y, p.hot ? 2.6 : 1.5, 0, 7); cx.fill(); }
+  // planet
+  const pr = Math.min(W, H) * .46, px = W * .5, py = H * 1.1 + sc * H * .9;
+  if (py - pr < H) {
+    const pg = x.createRadialGradient(px - pr * .3, py - pr * .9, pr * .1, px, py, pr); pg.addColorStop(0, "#5D6BFF"); pg.addColorStop(.5, "#1B1E5A"); pg.addColorStop(1, "#05060F");
+    x.fillStyle = pg; x.beginPath(); x.arc(px, py, pr, 0, 7); x.fill();
+    x.strokeStyle = "rgba(140,155,255,.95)"; x.lineWidth = 2; x.shadowColor = "#7C8CFF"; x.shadowBlur = 44; x.beginPath(); x.arc(px, py, pr, Math.PI * 1.06, Math.PI * 1.94); x.stroke(); x.shadowBlur = 0;
+    x.save(); x.translate(px, py - pr * .15); x.rotate(-.18);
+    for (let i = 0; i < 3; i++) { x.strokeStyle = `rgba(56,225,255,${.4 - i * .11})`; x.lineWidth = 2 - i * .5; x.beginPath(); x.ellipse(0, 0, pr * (1.5 + i * .12), pr * (.28 + i * .03), 0, Math.PI * 1.02, Math.PI * 1.98); x.stroke(); }
+    x.restore();
+  }
+  // keep text readable over the sky below the hero
+  x.fillStyle = `rgba(4,5,10,${sc * .45})`; x.fillRect(0, 0, W, H);
   if (!calm) requestAnimationFrame(draw);
 }
 addEventListener("resize", size); size(); draw();
+if (calm) addEventListener("scroll", draw, { passive: true });
 </script>
 </body>
 </html>
