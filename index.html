@@ -94,6 +94,11 @@ p{margin:0 0 16px}
 .gallery img{border:1px solid var(--line);border-radius:10px;width:100%}
 .gallery figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:8px}
 .note{font-size:14px;color:var(--dim);margin-top:26px}
+.project + .project{margin-top:120px;padding-top:96px;border-top:1px solid var(--line)}
+.phones{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 18px;margin-top:40px;scroll-snap-type:x mandatory}
+.phones figure{margin:0;flex:0 0 220px;scroll-snap-align:start}
+.phones img{width:220px;aspect-ratio:9/20;object-fit:cover;background:#fff;border-radius:26px;border:6px solid #15182B;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 50px rgba(90,110,255,.18)}
+.phones figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:10px;text-align:center}
 
 /* contact */
 .contact{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(28px,5vw,56px)}
@@ -123,10 +128,10 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
 <main id="top">
   <div class="hero">
     <div class="wrap">
-      <p class="hello">Software developer · C# and .NET</p>
+      <p class="hello">Software developer · .NET and Kotlin</p>
       <h1>Ethan <span>Kistan</span></h1>
       <p class="typed">I build <b id="typed">backend APIs</b><span class="caret" aria-hidden="true"></span></p>
-      <p class="lede">Software developer working in C# and .NET. I like the parts of a system people don't see: the API, the database, and the integrations that keep the screen honest.</p>
+      <p class="lede">Software developer working in C#, .NET and Kotlin. I build backends and the desktop and Android apps that use them.</p>
       <div class="cta">
         <a class="btn pri" href="#work">View my work</a>
         <a class="btn" href="#contact">Get in touch</a>
@@ -161,6 +166,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
         <div class="group rv"><h3>Backend</h3><ul class="chips"><li>C#</li><li>.NET 10</li><li>ASP.NET Core</li><li>Entity Framework Core</li><li>REST APIs</li><li>JWT auth</li></ul></div>
         <div class="group rv"><h3>Data</h3><ul class="chips"><li>Azure SQL</li><li>SQL Server</li><li>SQLite</li><li>EF migrations</li></ul></div>
         <div class="group rv"><h3>Desktop</h3><ul class="chips"><li>WPF</li><li>XAML</li><li>MVVM</li></ul></div>
+        <div class="group rv"><h3>Android</h3><ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Material 3</li><li>Compose Navigation</li></ul></div>
         <div class="group rv"><h3>Cloud and delivery</h3><ul class="chips"><li>Azure App Service</li><li>GitHub Actions</li><li>Git</li><li>Sonar</li><li>Snyk</li></ul></div>
         <div class="group rv"><h3>Testing</h3><ul class="chips"><li>xUnit</li><li>Integration tests</li><li>Testcontainers</li></ul></div>
         <div class="group rv"><h3>Integrations</h3><ul class="chips"><li>Cartrack fleet API</li><li>Sendbird chat</li><li>OpenStreetMap</li><li>OpenRouteService</li></ul></div>
@@ -170,6 +176,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
 
   <section id="work">
     <div class="wrap">
+      <div class="project">
       <p class="label rv">03 · Featured work</p>
       <h2 class="rv">Sacks Packaging LMS</h2>
       <div class="two">
@@ -204,6 +211,35 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
         <figure class="rv"><img src="assets/dashboard.jpg" alt="Dashboard with a delivery in progress" loading="lazy"><figcaption>Dashboard</figcaption></figure>
       </div>
       <p class="note">Screenshots show sample data.</p>
+      </div>
+
+      <div class="project">
+        <p class="label rv">Android · Kotlin</p>
+        <h2 class="rv">MyCircle</h2>
+        <div class="two">
+          <div class="rv">
+            <p>A native Android app for finding local hobby groups and organising meetups: discover a group, join it, then create or RSVP to a meetup.</p>
+            <p class="dim">I was the team's UI developer. I built the app's interface in Kotlin and Jetpack Compose on top of a repository layer I defined, so teammates could swap my mock data for the live API without touching the screens.</p>
+            <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Material 3</li><li>Compose Navigation</li><li>MVVM</li></ul>
+            <p class="note">Team of four · 2026 · Backend on Azure (ASP.NET Core and Cosmos DB) and Google sign-in were built by teammates. Source is private; available on request.</p>
+          </div>
+          <div class="built" style="margin-top:0;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+            <div class="card rv"><h3>12 screens</h3><p>Onboarding, language select, sign-in, biometric unlock, home feed, search with filters, event and group detail, create meetup, create group, profile and settings.</p></div>
+            <div class="card rv"><h3>Navigation and theme</h3><p>The navigation graph and app shell, the indigo, amber and teal palette, the type scale and the shared components every screen uses.</p></div>
+            <div class="card rv"><h3>Four languages</h3><p>All text in English, Afrikaans, isiZulu and isiXhosa, switchable from inside the app.</p></div>
+            <div class="card rv"><h3>Built to hand over</h3><p>Screens take their data as parameters through one repository interface, and date and time fields are exposed to accessibility services.</p></div>
+          </div>
+        </div>
+        <div class="phones rv">
+          <figure><img src="assets/mc-onboarding.jpg" alt="MyCircle language picker with four languages"><figcaption>Language</figcaption></figure>
+          <figure><img src="assets/mc-home.jpg" alt="MyCircle home feed with the offline sync banner"><figcaption>Home</figcaption></figure>
+          <figure><img src="assets/mc-search.jpg" alt="MyCircle search with filters"><figcaption>Search</figcaption></figure>
+          <figure><img src="assets/mc-event.jpg" alt="MyCircle meetup detail with RSVP button"><figcaption>Meetup</figcaption></figure>
+          <figure><img src="assets/mc-group.jpg" alt="MyCircle group search results"><figcaption>Groups</figcaption></figure>
+          <figure><img src="assets/mc-create.jpg" alt="MyCircle create meetup form"><figcaption>Create meetup</figcaption></figure>
+          <figure><img src="assets/mc-profile.jpg" alt="MyCircle create group form"><figcaption>Create group</figcaption></figure>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -231,7 +267,7 @@ const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersec
 document.querySelectorAll(".rv").forEach((el) => io.observe(el));
 
 // Typed line.
-const roles = ["backend APIs", "desktop apps in .NET", "live fleet tracking", "systems on Azure"];
+const roles = ["backend APIs", "desktop apps in .NET", "Android apps in Kotlin", "systems on Azure"];
 const out = document.getElementById("typed");
 if (!calm) {
   let r = 0, n = roles[0].length, dir = -1, wait = 40;
