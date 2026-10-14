@@ -96,6 +96,9 @@ p{margin:0 0 16px}
 .gallery img{border:1px solid var(--line);border-radius:10px;width:100%}
 .gallery figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:8px}
 .note{font-size:14px;color:var(--dim);margin-top:26px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--hot2);border:1px solid rgba(56,225,255,.35);background:rgba(56,225,255,.08);padding:6px 12px;border-radius:999px;margin:0 0 18px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--hot2);box-shadow:0 0 10px var(--hot2);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
 .project + .project{margin-top:120px;padding-top:96px;border-top:1px solid var(--line)}
 .phones{display:flex;gap:18px;overflow-x:auto;padding:8px 4px 18px;margin-top:40px;scroll-snap-type:x mandatory}
 .phones figure{margin:0;flex:0 0 220px;scroll-snap-align:start}
@@ -113,7 +116,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
 .js .rv.in{opacity:1;transform:none}
 @media (max-width:820px){.two{grid-template-columns:1fr;gap:28px} nav a{padding:8px 8px;font-size:12px} section{padding-block:72px}}
 @media (max-width:480px){.brand{display:none} header .wrap{justify-content:center}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.caret{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.caret,.status::before{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -186,6 +189,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
       <div class="project">
       <p class="label rv">03 · Featured work</p>
       <h2 class="rv">Sacks Packaging LMS</h2>
+      <p class="status rv">Ongoing · in active development</p>
       <div class="two">
         <div class="rv">
           <p>A logistics management system for a Durban packaging manufacturer. It replaces a shared spreadsheet, a second fleet sheet and WhatsApp status updates with one Windows desktop app backed by an API and database on Microsoft Azure.</p>
@@ -195,7 +199,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
             <a class="btn pri" href="https://github.com/EthanKistan/sacks-packaging-lms">Read the case study</a>
             <a class="btn" href="https://youtu.be/2Im0VTIoqD8">Watch the presentation</a>
           </div>
-          <p class="note">Team of six · 2026 · Source is private because it was built for a client; available on request.</p>
+          <p class="note">Team of six · 2026 to present · Source is private because it was built for a client; available on request.</p>
         </div>
         <div class="screen rv">
           <video src="assets/reel-loop.mp4" poster="assets/reel-poster.jpg" autoplay muted loop playsinline aria-label="Clip from the Sacks Packaging LMS showcase film"></video>
@@ -223,6 +227,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
       <div class="project">
         <p class="label rv">Android · Kotlin</p>
         <h2 class="rv">MyCircle</h2>
+        <p class="status rv">Preparing for public release</p>
         <div class="two">
           <div class="rv">
             <p>A native Android app for finding local hobby groups and organising meetups: discover a group, join it, then create or RSVP to a meetup.</p>
