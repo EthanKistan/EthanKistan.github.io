@@ -162,9 +162,9 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
         </div>
       </div>
       <div class="facts rv">
-        <div class="fact"><b>59 / 105</b><span>commits on the project's main branch are mine</span></div>
-        <div class="fact"><b>6</b><span>areas of the app I migrated onto the API</span></div>
-        <div class="fact"><b>100</b><span>automated tests in the team's CI pipeline</span></div>
+        <div class="fact"><b>125 / 227</b><span>commits on the project's main branch are mine</span></div>
+        <div class="fact"><b>Lead</b><span>of the six-person team: planning, task assignment and key decisions</span></div>
+        <div class="fact"><b>138</b><span>automated tests in the team's CI pipeline</span></div>
         <div class="fact"><b>Live</b><span>on Microsoft Azure: App Service and Azure SQL</span></div>
       </div>
     </div>
@@ -181,7 +181,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
         <div class="group rv"><h3>Android</h3><ul class="chips"><li>Kotlin</li><li>Jetpack Compose</li><li>Material 3</li><li>Compose Navigation</li></ul></div>
         <div class="group rv"><h3>Cloud and delivery</h3><ul class="chips"><li>Azure App Service</li><li>GitHub Actions</li><li>Git</li><li>Sonar</li><li>Snyk</li></ul></div>
         <div class="group rv"><h3>Testing</h3><ul class="chips"><li>xUnit</li><li>Integration tests</li><li>Testcontainers</li></ul></div>
-        <div class="group rv"><h3>Integrations</h3><ul class="chips"><li>Cartrack fleet API</li><li>Sendbird chat</li><li>OpenStreetMap</li><li>OpenRouteService</li></ul></div>
+        <div class="group rv"><h3>Integrations</h3><ul class="chips"><li>Cartrack fleet API</li><li>Sendbird chat</li><li>Google Maps Platform</li><li>Velopack</li></ul></div>
       </div>
     </div>
   </section>
@@ -201,7 +201,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
             <a class="btn pri" href="https://github.com/EthanKistan/sacks-packaging-lms">Read the case study</a>
             <a class="btn" href="https://youtu.be/2Im0VTIoqD8">Watch the presentation</a>
           </div>
-          <p class="note">Team of six · 2026 to present · Source is private because it was built for a client; available on request.</p>
+          <p class="note">Team lead · Team of six · 2026 to present · Source is private because it was built for a client; available on request.</p>
         </div>
         <div class="screen rv">
           <video src="assets/reel-loop.mp4" poster="assets/reel-poster.jpg" autoplay muted loop playsinline aria-label="Clip from the Sacks Packaging LMS showcase film"></video>
@@ -209,9 +209,11 @@ footer{padding-block:32px;border-top:1px solid var(--line);font-family:var(--mon
       </div>
 
       <div class="built">
+        <div class="card rv"><h3>Leading the team</h3><p>Led the team of six: planned the project, assigned the work and made the key technical and design decisions, working with the client's staff on how they plan and dispatch.</p></div>
         <div class="card rv"><h3>The backend</h3><p>Designed and built the ASP.NET Core API and EF Core data layer, then migrated allocation, scheduling, history, users, documents and the distribution plan off local files onto it.</p></div>
-        <div class="card rv"><h3>Live fleet tracking</h3><p>Vehicle positions from the Cartrack API on an OpenStreetMap map, polled every 5 seconds, with telemetry, trip history, geofence status and ETA to the delivery point.</p></div>
+        <div class="card rv"><h3>Live fleet tracking</h3><p>Vehicle positions from the Cartrack API on Google Maps, polled every 5 seconds, with telemetry, trip history, geofence status, fuel-theft alerts and ETA to the delivery point.</p></div>
         <div class="card rv"><h3>Security</h3><p>JWT sign-in with passwords verified on the server, and per-screen permissions enforced on every API request, not only hidden in the menu.</p></div>
+        <div class="card rv"><h3>Releases</h3><p>Velopack auto-updates with delta packages, cutting each update from about 110 MB to 20 MB, and a tag-driven release pipeline that names releases and writes their notes.</p></div>
         <div class="card rv"><h3>Quality</h3><p>Integration tests against a real SQL Server container, plus Sonar and Snyk scanning in the CI pipeline. Traced a vanishing-reactions bug to a chat SDK defect and worked around it.</p></div>
       </div>
 
